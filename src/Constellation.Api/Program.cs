@@ -39,12 +39,11 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Ensure database is created and seeded
+// Ensure database is created
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ConstellationDbContext>();
     db.Database.EnsureCreated();
-    await DatabaseSeeder.SeedAsync(db);
 }
 
 // Configure the HTTP request pipeline.

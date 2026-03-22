@@ -13,12 +13,12 @@ public class MiningOptions
     /// <summary>
     /// Center latitude for geographic search.
     /// </summary>
-    public double Latitude { get; set; } = 43.6532;
+    public double Latitude { get; set; } = 43.5890;
 
     /// <summary>
     /// Center longitude for geographic search.
     /// </summary>
-    public double Longitude { get; set; } = -79.3832;
+    public double Longitude { get; set; } = -79.6441;
 
     /// <summary>
     /// Search radius in kilometers.

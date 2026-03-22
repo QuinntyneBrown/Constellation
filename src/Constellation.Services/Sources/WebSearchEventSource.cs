@@ -20,7 +20,10 @@ public class WebSearchEventSource : IEventSource
         "Black professionals space industry meetup",
         "African American defense industry networking event",
         "BEYA conference",
-        "Black engineer space defense event"
+        "Black engineer space defense event",
+        ".NET conference event",
+        "Angular conference event",
+        "Playwright testing conference"
     };
 
     public string SourceName => "WebSearch";
@@ -51,24 +54,13 @@ public class WebSearchEventSource : IEventSource
 
         var results = new List<DiscoveredEvent>();
 
+        // Geographic search
         foreach (var term in SearchTerms)
         {
             try
             {
                 var geoQualifier = string.Join(" ", _miningOptions.Cities);
-                var qualifiedTerm = $"{term} {geoQualifier}";
-                var encodedTerm = Uri.EscapeDataString(qualifiedTerm);
-                var url = $"https://api.bing.microsoft.com/v7.0/search?q={encodedTerm}&count=20&responseFilter=Webpages";
-
-                var response = await client.GetAsync(url, cancellationToken);
-                if (!response.IsSuccessStatusCode)
-                {
-                    _logger.LogWarning("Bing search for '{Term}' returned {StatusCode}.", term, response.StatusCode);
-                    continue;
-                }
-
-                var json = await response.Content.ReadFromJsonAsync<JsonElement>(cancellationToken: cancellationToken);
-                var events = ParseSearchResults(json, term);
+                var events = await SearchEventsAsync(client, term, geoQualifier, cancellationToken);
                 results.AddRange(events);
             }
             catch (Exception ex)
@@ -77,11 +69,42 @@ public class WebSearchEventSource : IEventSource
             }
         }
 
+        // Online/virtual event search (no geographic qualifier)
+        foreach (var term in SearchTerms)
+        {
+            try
+            {
+                var events = await SearchEventsAsync(client, term + " online", geoQualifier: null, cancellationToken, isOnlineSearch: true);
+                results.AddRange(events);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error discovering online events from Bing for term '{Term}'.", term);
+            }
+        }
+
         _logger.LogInformation("WebSearch discovered {Count} events.", results.Count);
         return results;
     }
 
-    private List<DiscoveredEvent> ParseSearchResults(JsonElement json, string searchTerm)
+    private async Task<List<DiscoveredEvent>> SearchEventsAsync(HttpClient client, string term, string? geoQualifier, CancellationToken cancellationToken, bool isOnlineSearch = false)
+    {
+        var qualifiedTerm = string.IsNullOrWhiteSpace(geoQualifier) ? term : $"{term} {geoQualifier}";
+        var encodedTerm = Uri.EscapeDataString(qualifiedTerm);
+        var url = $"https://api.bing.microsoft.com/v7.0/search?q={encodedTerm}&count=20&responseFilter=Webpages";
+
+        var response = await client.GetAsync(url, cancellationToken);
+        if (!response.IsSuccessStatusCode)
+        {
+            _logger.LogWarning("Bing search for '{Term}' returned {StatusCode}.", term, response.StatusCode);
+            return new List<DiscoveredEvent>();
+        }
+
+        var json = await response.Content.ReadFromJsonAsync<JsonElement>(cancellationToken: cancellationToken);
+        return ParseSearchResults(json, term, isOnlineSearch);
+    }
+
+    private List<DiscoveredEvent> ParseSearchResults(JsonElement json, string searchTerm, bool isOnlineSearch)
     {
         var results = new List<DiscoveredEvent>();
 
@@ -113,12 +136,14 @@ public class WebSearchEventSource : IEventSource
                     datePublished = parsed;
                 }
 
+                var location = isOnlineSearch ? "Online" : string.Empty;
+
                 results.Add(new DiscoveredEvent
                 {
                     Title = title,
                     Description = description,
                     Url = url,
-                    Location = string.Empty,
+                    Location = location,
                     StartDate = datePublished,
                     EndDate = null,
                     Source = SourceName,

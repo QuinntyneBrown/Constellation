@@ -21,7 +21,11 @@ public class EventbriteEventSource : IEventSource
         "Black in aerospace",
         "BEYA STEM",
         "NSBE defense",
-        "Black aerospace professionals"
+        "Black aerospace professionals",
+        ".NET developer meetup",
+        "Angular meetup",
+        "Playwright testing",
+        "automated testing .NET"
     };
 
     public string SourceName => "Eventbrite";
@@ -53,36 +57,13 @@ public class EventbriteEventSource : IEventSource
 
         var results = new List<DiscoveredEvent>();
 
+        // Geographic search
         foreach (var term in SearchTerms)
         {
             try
             {
-                var encodedTerm = Uri.EscapeDataString(term);
-                var lat = _miningOptions.Latitude.ToString(CultureInfo.InvariantCulture);
-                var lon = _miningOptions.Longitude.ToString(CultureInfo.InvariantCulture);
-                var radius = _miningOptions.RadiusKm;
-                var url = $"https://www.eventbriteapi.com/v3/events/search/?q={encodedTerm}&expand=venue&location.latitude={lat}&location.longitude={lon}&location.within={radius}km";
-
-                var response = await client.GetAsync(url, cancellationToken);
-                if (!response.IsSuccessStatusCode)
-                {
-                    _logger.LogWarning("Eventbrite search for '{Term}' returned {StatusCode}.", term, response.StatusCode);
-                    continue;
-                }
-
-                var json = await response.Content.ReadFromJsonAsync<JsonElement>(cancellationToken: cancellationToken);
-
-                if (json.TryGetProperty("events", out var events))
-                {
-                    foreach (var ev in events.EnumerateArray())
-                    {
-                        var discovered = MapToDiscoveredEvent(ev, term);
-                        if (discovered is not null)
-                        {
-                            results.Add(discovered);
-                        }
-                    }
-                }
+                var events = await SearchEventsAsync(client, term, includeGeo: true, cancellationToken);
+                results.AddRange(events);
             }
             catch (Exception ex)
             {
@@ -90,7 +71,67 @@ public class EventbriteEventSource : IEventSource
             }
         }
 
+        // Online/virtual event search (no geographic restriction)
+        foreach (var term in SearchTerms)
+        {
+            try
+            {
+                var events = await SearchEventsAsync(client, term + " online", includeGeo: false, cancellationToken);
+                results.AddRange(events);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error discovering online events from Eventbrite for term '{Term}'.", term);
+            }
+        }
+
         _logger.LogInformation("Eventbrite discovered {Count} events.", results.Count);
+        return results;
+    }
+
+    private async Task<List<DiscoveredEvent>> SearchEventsAsync(HttpClient client, string term, bool includeGeo, CancellationToken cancellationToken)
+    {
+        var encodedTerm = Uri.EscapeDataString(term);
+        string url;
+
+        if (includeGeo)
+        {
+            var lat = _miningOptions.Latitude.ToString(CultureInfo.InvariantCulture);
+            var lon = _miningOptions.Longitude.ToString(CultureInfo.InvariantCulture);
+            var radius = _miningOptions.RadiusKm;
+            url = $"https://www.eventbriteapi.com/v3/events/search/?q={encodedTerm}&expand=venue&location.latitude={lat}&location.longitude={lon}&location.within={radius}km";
+        }
+        else
+        {
+            url = $"https://www.eventbriteapi.com/v3/events/search/?q={encodedTerm}&expand=venue";
+        }
+
+        var response = await client.GetAsync(url, cancellationToken);
+        if (!response.IsSuccessStatusCode)
+        {
+            _logger.LogWarning("Eventbrite search for '{Term}' returned {StatusCode}.", term, response.StatusCode);
+            return new List<DiscoveredEvent>();
+        }
+
+        var json = await response.Content.ReadFromJsonAsync<JsonElement>(cancellationToken: cancellationToken);
+        var results = new List<DiscoveredEvent>();
+
+        if (json.TryGetProperty("events", out var events))
+        {
+            foreach (var ev in events.EnumerateArray())
+            {
+                var discovered = MapToDiscoveredEvent(ev, term);
+                if (discovered is not null)
+                {
+                    if (string.IsNullOrWhiteSpace(discovered.Location))
+                    {
+                        discovered.Location = "Online";
+                    }
+                    results.Add(discovered);
+                }
+            }
+        }
+
         return results;
     }
 

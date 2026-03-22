@@ -21,7 +21,10 @@ public class MeetupEventSource : IEventSource
     {
         "Black space professionals",
         "defense industry diversity",
-        "Black engineers aerospace"
+        "Black engineers aerospace",
+        ".NET developer",
+        "Angular developer",
+        "Playwright automated testing"
     };
 
     public string SourceName => "Meetup";
@@ -53,25 +56,12 @@ public class MeetupEventSource : IEventSource
 
         var results = new List<DiscoveredEvent>();
 
+        // Geographic search
         foreach (var term in SearchTerms)
         {
             try
             {
-                var query = BuildGraphQLQuery(term);
-                var content = new StringContent(
-                    JsonSerializer.Serialize(new { query }),
-                    Encoding.UTF8,
-                    "application/json");
-
-                var response = await client.PostAsync("https://api.meetup.com/gql", content, cancellationToken);
-                if (!response.IsSuccessStatusCode)
-                {
-                    _logger.LogWarning("Meetup GraphQL query for '{Term}' returned {StatusCode}.", term, response.StatusCode);
-                    continue;
-                }
-
-                var json = await response.Content.ReadFromJsonAsync<JsonElement>(cancellationToken: cancellationToken);
-                var events = ParseGraphQLResponse(json, term);
+                var events = await SearchEventsAsync(client, term, includeGeo: true, cancellationToken);
                 results.AddRange(events);
             }
             catch (Exception ex)
@@ -80,19 +70,63 @@ public class MeetupEventSource : IEventSource
             }
         }
 
+        // Online/virtual event search (no geographic restriction)
+        foreach (var term in SearchTerms)
+        {
+            try
+            {
+                var events = await SearchEventsAsync(client, term + " online", includeGeo: false, cancellationToken);
+                results.AddRange(events);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error discovering online events from Meetup for term '{Term}'.", term);
+            }
+        }
+
         _logger.LogInformation("Meetup discovered {Count} events.", results.Count);
         return results;
     }
 
-    private string BuildGraphQLQuery(string searchTerm)
+    private async Task<List<DiscoveredEvent>> SearchEventsAsync(HttpClient client, string term, bool includeGeo, CancellationToken cancellationToken)
+    {
+        var query = BuildGraphQLQuery(term, includeGeo);
+        var content = new StringContent(
+            JsonSerializer.Serialize(new { query }),
+            Encoding.UTF8,
+            "application/json");
+
+        var response = await client.PostAsync("https://api.meetup.com/gql", content, cancellationToken);
+        if (!response.IsSuccessStatusCode)
+        {
+            _logger.LogWarning("Meetup GraphQL query for '{Term}' returned {StatusCode}.", term, response.StatusCode);
+            return new List<DiscoveredEvent>();
+        }
+
+        var json = await response.Content.ReadFromJsonAsync<JsonElement>(cancellationToken: cancellationToken);
+        return ParseGraphQLResponse(json, term);
+    }
+
+    private string BuildGraphQLQuery(string searchTerm, bool includeGeo = true)
     {
         var escapedTerm = searchTerm.Replace("\"", "\\\"");
-        var lat = _miningOptions.Latitude.ToString(CultureInfo.InvariantCulture);
-        var lon = _miningOptions.Longitude.ToString(CultureInfo.InvariantCulture);
-        var radius = _miningOptions.RadiusKm;
+
+        string filterContent;
+        if (includeGeo)
+        {
+            var lat = _miningOptions.Latitude.ToString(CultureInfo.InvariantCulture);
+            var lon = _miningOptions.Longitude.ToString(CultureInfo.InvariantCulture);
+            var radius = _miningOptions.RadiusKm;
+            filterContent = $"query: \"{escapedTerm}\", lat: {lat}, lon: {lon}, radius: {radius}, source: EVENTS";
+        }
+        else
+        {
+            filterContent = $"query: \"{escapedTerm}\", source: EVENTS";
+        }
+
         return $$"""
             {
-              keywordSearch(filter: { query: "{{escapedTerm}}", lat: {{lat}}, lon: {{lon}}, radius: {{radius}}, source: EVENTS }, input: { first: 20 }) {
+              keywordSearch(filter: { {{filterContent}} }, input: { first: 20 }) {
                 edges {
                   node {
                     id
@@ -156,6 +190,11 @@ public class MeetupEventSource : IEventSource
                     var state = venue.TryGetProperty("state", out var stateProp) ? stateProp.GetString() : null;
                     var venueName = venue.TryGetProperty("name", out var nameProp) ? nameProp.GetString() : null;
                     location = string.Join(", ", new[] { venueName, city, state }.Where(s => !string.IsNullOrEmpty(s)));
+                }
+
+                if (string.IsNullOrWhiteSpace(location))
+                {
+                    location = "Online";
                 }
 
                 DateTime? startDate = null;
