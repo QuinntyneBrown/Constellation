@@ -4,6 +4,18 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/spec",
+    "baseUrl": "../../",
+    "paths": {
+      "api": [
+        "projects/api/src/public-api.ts"
+      ],
+      "components": [
+        "projects/components/src/public-api.ts"
+      ],
+      "domain": [
+        "projects/domain/src/public-api.ts"
+      ]
+    },
     "types": [
       "vitest/globals"
     ]

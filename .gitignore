@@ -491,3 +491,4 @@ $RECYCLE.BIN/
 
 # Playwright
 .playwright/
+.playwright-cli/
