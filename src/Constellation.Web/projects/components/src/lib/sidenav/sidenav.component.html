@@ -1,0 +1,19 @@
+<nav class="sidenav">
+  <div class="brand-row">
+    <span class="material-symbols-rounded brand-icon">stars</span>
+    <span class="brand-text">Constellation</span>
+  </div>
+  <div class="nav-divider"></div>
+  <ul class="nav-list">
+    @for (item of navItems; track item.route) {
+      <li
+        class="nav-item"
+        [class.active]="item.route === activeRoute()"
+        (click)="navItemClicked.emit(item.route)"
+      >
+        <span class="material-symbols-rounded nav-icon">{{ item.icon }}</span>
+        <span class="nav-label">{{ item.label }}</span>
+      </li>
+    }
+  </ul>
+</nav>

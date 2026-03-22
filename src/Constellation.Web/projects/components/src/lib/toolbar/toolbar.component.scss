@@ -1,0 +1,60 @@
+:host { display: block; }
+.toolbar {
+  background: #1F1F1F;
+  height: 64px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid #333333;
+  box-sizing: border-box;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.icon-btn .material-symbols-rounded {
+  color: #B0B0B0;
+  font-size: 24px;
+}
+.toolbar-title {
+  color: #FFFFFF;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+.spacer {
+  flex: 1;
+}
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background: #BB86FC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-text {
+  color: #FFFFFF;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .toolbar {
+    height: 56px;
+  }
+  .toolbar-title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .desktop-toolbar-icon {
+    display: none;
+  }
+}

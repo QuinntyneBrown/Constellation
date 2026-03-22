@@ -1,0 +1,41 @@
+<cst-toolbar (menuToggled)="sidenavOpen.set(!sidenavOpen())" />
+<div class="body-row">
+  @if (sidenavOpen()) {
+    <div class="sidenav-container desktop-only">
+      <cst-sidenav
+        [activeRoute]="activeRoute()"
+        (navItemClicked)="onNavigate($event)"
+      />
+    </div>
+  }
+  <div class="icon-rail tablet-only">
+    <span class="material-symbols-rounded brand-icon">stars</span>
+    <div class="rail-divider"></div>
+    <div class="rail-nav">
+      @for (item of tabItems; track item.route) {
+        <button
+          class="rail-btn"
+          [class.active]="item.route === activeRoute()"
+          (click)="onNavigate(item.route)"
+        >
+          <span class="material-symbols-rounded">{{ item.icon }}</span>
+        </button>
+      }
+    </div>
+  </div>
+  <main class="main-content">
+    <router-outlet />
+  </main>
+</div>
+<nav class="bottom-tab-bar mobile-only">
+  @for (item of tabItems; track item.route) {
+    <button
+      class="tab-item"
+      [class.active]="item.route === activeRoute()"
+      (click)="onNavigate(item.route)"
+    >
+      <span class="material-symbols-rounded tab-icon">{{ item.icon }}</span>
+      <span class="tab-label">{{ item.label }}</span>
+    </button>
+  }
+</nav>

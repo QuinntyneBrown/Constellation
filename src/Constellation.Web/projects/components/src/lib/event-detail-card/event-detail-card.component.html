@@ -1,0 +1,85 @@
+<div class="detail-card">
+  <!-- Title Row -->
+  <div class="title-row">
+    <span class="detail-title">{{ event().title }}</span>
+    <div class="relevance-badge">
+      <span class="material-symbols-rounded badge-icon">star</span>
+      <span class="badge-text">{{ event().relevanceScore }} Relevance</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Metadata Grid -->
+  <div class="meta-grid">
+    <div class="meta-col">
+      <div class="meta-item">
+        <span class="material-symbols-rounded meta-icon">calendar_today</span>
+        <div class="meta-info">
+          <span class="meta-label">Date</span>
+          <span class="meta-value">{{ event().startDate | date:'MMM dd, yyyy' }}</span>
+        </div>
+      </div>
+      <div class="meta-item">
+        <span class="material-symbols-rounded meta-icon">location_on</span>
+        <div class="meta-info">
+          <span class="meta-label">Location</span>
+          <span class="meta-value">{{ event().location || 'Not specified' }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="meta-col">
+      <div class="meta-item">
+        <span class="material-symbols-rounded meta-icon">cloud_sync</span>
+        <div class="meta-info">
+          <span class="meta-label">Source</span>
+          <span class="meta-value">{{ event().source }}</span>
+        </div>
+      </div>
+      <div class="meta-item">
+        <span class="material-symbols-rounded meta-icon">analytics</span>
+        <div class="meta-info">
+          <span class="meta-label">Relevance</span>
+          <span class="meta-value">{{ event().relevanceScore }} / 10</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Description -->
+  <div class="desc-section">
+    <span class="section-label">Description</span>
+    <p class="desc-text">{{ event().description }}</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Tags -->
+  @if (event().tags.length > 0) {
+    <div class="tags-section">
+      <span class="section-label">Tags</span>
+      <div class="tags-row">
+        @for (tag of event().tags; track tag) {
+          <div class="tag-chip">
+            <span class="tag-text">{{ tag }}</span>
+          </div>
+        }
+      </div>
+    </div>
+    <div class="divider"></div>
+  }
+
+  <!-- Actions -->
+  <div class="actions-row">
+    <button class="btn-stroked" (click)="share.emit()">
+      <span class="material-symbols-rounded btn-icon">share</span>
+      <span>Share</span>
+    </button>
+    <button class="btn-filled" (click)="openLink.emit()">
+      <span class="material-symbols-rounded btn-icon">open_in_new</span>
+      <span>Open Link</span>
+    </button>
+  </div>
+</div>

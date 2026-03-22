@@ -1,0 +1,128 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #121212;
+}
+.body-row {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+.sidenav-container {
+  width: 260px;
+  flex-shrink: 0;
+}
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  background: #121212;
+}
+
+/* Icon Rail — Tablet */
+.icon-rail {
+  display: none;
+  width: 64px;
+  flex-shrink: 0;
+  background: #1A1A1A;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 8px;
+}
+.brand-icon {
+  color: #BB86FC;
+  font-size: 32px;
+}
+.rail-divider {
+  height: 1px;
+  width: 100%;
+  background: #2C2C2C;
+  margin: 16px 0;
+}
+.rail-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 0;
+}
+.rail-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.rail-btn:hover { background: #2C2C2C; }
+.rail-btn .material-symbols-rounded {
+  color: #B0B0B0;
+  font-size: 24px;
+}
+.rail-btn.active {
+  background: #2C2C2C;
+}
+.rail-btn.active .material-symbols-rounded {
+  color: #BB86FC;
+}
+
+/* Bottom Tab Bar — Mobile */
+.bottom-tab-bar {
+  display: none;
+  background: #1E1E1E;
+  height: 64px;
+  border-top: 1px solid #333333;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 0;
+  flex-shrink: 0;
+}
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  height: 100%;
+}
+.tab-icon {
+  color: #6B6B6B;
+  font-size: 22px;
+}
+.tab-label {
+  color: #6B6B6B;
+  font-family: Roboto, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+}
+.tab-item.active .tab-icon,
+.tab-item.active .tab-label {
+  color: #BB86FC;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 480px) {
+  .desktop-only { display: none !important; }
+  .tablet-only { display: none !important; }
+  .mobile-only { display: flex !important; }
+  .bottom-tab-bar { display: flex; }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .desktop-only { display: none !important; }
+  .tablet-only { display: flex !important; }
+  .mobile-only { display: none !important; }
+  .icon-rail { display: flex; }
+}
+@media (min-width: 769px) {
+  .desktop-only { display: block; }
+  .tablet-only { display: none !important; }
+  .mobile-only { display: none !important; }
+}

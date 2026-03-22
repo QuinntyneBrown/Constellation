@@ -1,0 +1,17 @@
+<div class="stat-card">
+  <div class="stat-top">
+    <div class="icon-circle">
+      <span class="material-symbols-rounded stat-icon">{{ icon() }}</span>
+    </div>
+    <div class="stat-trend" [class.down]="!trendUp()">
+      <span class="material-symbols-rounded trend-icon">
+        {{ trendUp() ? 'trending_up' : 'trending_down' }}
+      </span>
+      <span class="trend-text">{{ trend() }}</span>
+    </div>
+  </div>
+  <div class="stat-bottom">
+    <span class="stat-value">{{ value() }}</span>
+    <span class="stat-label">{{ label() }}</span>
+  </div>
+</div>

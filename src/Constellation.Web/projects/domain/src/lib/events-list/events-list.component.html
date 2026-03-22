@@ -1,0 +1,66 @@
+<div class="events-page">
+  <!-- Header -->
+  <div class="page-header">
+    <h1 class="page-title">Events</h1>
+    <div class="count-badge">
+      <span>{{ totalCount().toLocaleString() }} events</span>
+    </div>
+  </div>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <div class="search-field">
+      <span class="material-symbols-rounded search-icon">search</span>
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search events..."
+        [ngModel]="keyword()"
+        (ngModelChange)="onKeywordChange($event)"
+      />
+    </div>
+    <div class="select-field">
+      <select class="source-select" [ngModel]="sourceFilter()" (ngModelChange)="onSourceChange($event)">
+        <option value="">All Sources</option>
+        @for (src of sources(); track src.source) {
+          <option [value]="src.source">{{ src.source }}</option>
+        }
+      </select>
+      <span class="material-symbols-rounded select-arrow">arrow_drop_down</span>
+    </div>
+    <div class="date-field">
+      <input
+        type="text"
+        class="date-input"
+        placeholder="Date range"
+        [ngModel]="dateFilter()"
+        (ngModelChange)="onDateChange($event)"
+        onfocus="this.type='date'"
+        onblur="if(!this.value)this.type='text'"
+      />
+      <span class="material-symbols-rounded date-icon">calendar_today</span>
+    </div>
+  </div>
+
+  <!-- Event Cards -->
+  <div class="events-list">
+    @for (event of events(); track event.id) {
+      <cst-event-card
+        [event]="event"
+        (eventClicked)="onEventClick($event)"
+      />
+    }
+    @if (!loading() && events().length === 0) {
+      <div class="empty-state">No events found.</div>
+    }
+  </div>
+
+  <!-- Paginator -->
+  <cst-paginator
+    [totalItems]="totalCount()"
+    [pageSize]="pageSize()"
+    [currentPage]="currentPage()"
+    (pageChanged)="onPageChange($event)"
+    (pageSizeChanged)="onPageSizeChange($event)"
+  />
+</div>

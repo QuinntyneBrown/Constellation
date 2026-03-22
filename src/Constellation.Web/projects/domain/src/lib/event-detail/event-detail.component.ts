@@ -7,69 +7,8 @@ import { EventDetailCardComponent } from 'components';
   selector: 'app-event-detail',
   standalone: true,
   imports: [EventDetailCardComponent],
-  template: `
-    <div class="detail-page">
-      <!-- Back Link -->
-      <button class="back-link" (click)="goBack()">
-        <span class="material-symbols-rounded back-icon">arrow_back</span>
-        <span class="back-text">Back to Events</span>
-      </button>
-
-      @if (event(); as ev) {
-        <cst-event-detail-card
-          [event]="ev"
-          (openLink)="onOpenLink()"
-          (share)="onShare()"
-        />
-      }
-
-      @if (loading()) {
-        <div class="loading-state">Loading event...</div>
-      }
-
-      @if (!loading() && !event()) {
-        <div class="error-state">Event not found.</div>
-      }
-    </div>
-  `,
-  styles: `
-    :host { display: block; }
-    .detail-page {
-      padding: 32px 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    .back-link {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-    }
-    .back-icon {
-      color: #B0B0B0;
-      font-size: 20px;
-    }
-    .back-text {
-      color: #B0B0B0;
-      font-family: Roboto, sans-serif;
-      font-size: 14px;
-    }
-    .back-link:hover .back-icon,
-    .back-link:hover .back-text {
-      color: #FFFFFF;
-    }
-    .loading-state, .error-state {
-      text-align: center;
-      color: #6B6B6B;
-      font-family: Roboto, sans-serif;
-      font-size: 16px;
-      padding: 48px;
-    }
-  `,
+  templateUrl: './event-detail.component.html',
+  styleUrl: './event-detail.component.scss',
 })
 export class EventDetailComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);

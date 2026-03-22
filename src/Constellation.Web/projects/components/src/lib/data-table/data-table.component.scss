@@ -1,0 +1,63 @@
+:host { display: block; }
+.table-card {
+  background: #1E1E1E;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.table-header-row {
+  display: flex;
+  background: #2C2C2C;
+  padding: 14px 24px;
+}
+.header-cell { display: flex; align-items: center; }
+.header-label {
+  color: #B0B0B0;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.data-row {
+  display: flex;
+  align-items: center;
+  padding: 14px 24px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.data-row:hover { background: #252525; }
+.data-cell { display: flex; align-items: center; }
+.cell-center { justify-content: center; }
+.cell-title {
+  color: #FFFFFF;
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
+}
+.cell-text {
+  color: #B0B0B0;
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
+}
+.source-chip {
+  background: #3A3A3A;
+  border-radius: 12px;
+  padding: 4px 12px;
+}
+.chip-text {
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+.relevance-badge {
+  border-radius: 16px;
+  padding: 4px 10px;
+}
+.badge-text {
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+.row-divider {
+  height: 1px;
+  background: #2C2C2C;
+}

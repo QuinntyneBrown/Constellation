@@ -1,0 +1,64 @@
+:host { display: block; }
+.stat-card {
+  background: #1E1E1E;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.stat-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background: #2C2C2C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stat-icon {
+  color: #BB86FC;
+  font-size: 24px;
+}
+.stat-trend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.trend-icon {
+  color: #4CAF50;
+  font-size: 16px;
+}
+.trend-text {
+  color: #4CAF50;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+.stat-trend.down .trend-icon,
+.stat-trend.down .trend-text {
+  color: #F44336;
+}
+.stat-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.stat-value {
+  color: #FFFFFF;
+  font-family: Roboto, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+.stat-label {
+  color: #B0B0B0;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}

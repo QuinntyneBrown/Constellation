@@ -1,0 +1,23 @@
+<div class="detail-page">
+  <!-- Back Link -->
+  <button class="back-link" (click)="goBack()">
+    <span class="material-symbols-rounded back-icon">arrow_back</span>
+    <span class="back-text">Back to Events</span>
+  </button>
+
+  @if (event(); as ev) {
+    <cst-event-detail-card
+      [event]="ev"
+      (openLink)="onOpenLink()"
+      (share)="onShare()"
+    />
+  }
+
+  @if (loading()) {
+    <div class="loading-state">Loading event...</div>
+  }
+
+  @if (!loading() && !event()) {
+    <div class="error-state">Event not found.</div>
+  }
+</div>

@@ -1,0 +1,20 @@
+<div class="sources-page">
+  <div class="page-header">
+    <h1 class="page-title">Sources</h1>
+    <span class="page-subtitle">{{ activeCount() }} active sources</span>
+  </div>
+
+  <div class="sources-grid">
+    @for (src of sourceDisplays(); track src.name) {
+      <cst-source-card
+        [name]="src.name"
+        [icon]="src.icon"
+        [iconColor]="src.iconColor"
+        [eventCount]="src.eventCount"
+        [lastSync]="src.lastSync"
+        [status]="src.status"
+        [sharePercent]="src.sharePercent"
+      />
+    }
+  </div>
+</div>

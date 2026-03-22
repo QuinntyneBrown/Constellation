@@ -1,0 +1,38 @@
+<div class="source-card">
+  <div class="card-header">
+    <div class="source-name">
+      <div class="source-icon-circle">
+        <span class="material-symbols-rounded source-icon" [style.color]="iconColor()">
+          {{ icon() }}
+        </span>
+      </div>
+      <span class="source-text">{{ name() }}</span>
+    </div>
+    <div class="status-chip" [class.inactive]="status() !== 'Active'">
+      <span class="status-text">{{ status() }}</span>
+    </div>
+  </div>
+  <div class="card-stats">
+    <div class="stat-col">
+      <span class="stat-value">{{ eventCount() }}</span>
+      <span class="stat-label">Events</span>
+    </div>
+    <div class="stat-col">
+      <span class="stat-value">{{ lastSync() }}</span>
+      <span class="stat-label">Last Sync</span>
+    </div>
+  </div>
+  <div class="progress-section">
+    <div class="progress-label">
+      <span class="progress-text">Event share</span>
+      <span class="progress-text">{{ sharePercent() }}%</span>
+    </div>
+    <div class="progress-bg">
+      <div
+        class="progress-fg"
+        [style.width.%]="sharePercent()"
+        [style.background]="iconColor()"
+      ></div>
+    </div>
+  </div>
+</div>

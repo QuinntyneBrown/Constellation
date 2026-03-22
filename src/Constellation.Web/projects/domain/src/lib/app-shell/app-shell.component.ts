@@ -9,48 +9,19 @@ import { ToolbarComponent } from 'components';
   selector: 'app-shell',
   standalone: true,
   imports: [RouterOutlet, SidenavComponent, ToolbarComponent],
-  template: `
-    <cst-toolbar (menuToggled)="sidenavOpen.set(!sidenavOpen())" />
-    <div class="body-row">
-      @if (sidenavOpen()) {
-        <div class="sidenav-container">
-          <cst-sidenav
-            [activeRoute]="activeRoute()"
-            (navItemClicked)="onNavigate($event)"
-          />
-        </div>
-      }
-      <main class="main-content">
-        <router-outlet />
-      </main>
-    </div>
-  `,
-  styles: `
-    :host {
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      background: #121212;
-    }
-    .body-row {
-      display: flex;
-      flex: 1;
-      overflow: hidden;
-    }
-    .sidenav-container {
-      width: 260px;
-      flex-shrink: 0;
-    }
-    .main-content {
-      flex: 1;
-      overflow-y: auto;
-      background: #121212;
-    }
-  `,
+  templateUrl: './app-shell.component.html',
+  styleUrl: './app-shell.component.scss',
 })
 export class AppShellComponent {
   private readonly router = inject(Router);
   sidenavOpen = signal(true);
+
+  readonly tabItems = [
+    { route: 'dashboard', label: 'Dashboard', icon: 'dashboard' },
+    { route: 'events', label: 'Events', icon: 'event' },
+    { route: 'sources', label: 'Sources', icon: 'cloud_sync' },
+    { route: 'settings', label: 'Settings', icon: 'settings' },
+  ];
 
   activeRoute = toSignal(
     this.router.events.pipe(

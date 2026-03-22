@@ -1,0 +1,57 @@
+<div class="dashboard">
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1 class="page-title">Dashboard</h1>
+    <button class="refresh-btn" (click)="loadData()">
+      <span class="material-symbols-rounded">refresh</span>
+      <span>Refresh</span>
+    </button>
+  </div>
+
+  <!-- Stat Cards Row -->
+  <div class="stats-row">
+    <cst-stat-card
+      icon="event"
+      [value]="totalEvents()"
+      label="Total Events"
+      [trend]="'+12%'"
+      [trendUp]="true"
+    />
+    <cst-stat-card
+      icon="cloud_sync"
+      [value]="sourcesActive()"
+      label="Sources Active"
+      [trend]="'+3'"
+      [trendUp]="true"
+    />
+    <cst-stat-card
+      icon="date_range"
+      [value]="eventsThisWeek()"
+      label="Events This Week"
+      [trend]="'+28%'"
+      [trendUp]="true"
+    />
+    <cst-stat-card
+      icon="analytics"
+      [value]="avgRelevance()"
+      label="Avg Relevance"
+      [trend]="'+5%'"
+      [trendUp]="true"
+    />
+  </div>
+
+  <!-- Recent Events Section -->
+  <div class="recent-section">
+    <div class="section-header">
+      <h2 class="section-title">Recent Events</h2>
+      <button class="view-all-btn" (click)="goToEvents()">
+        <span>View All Events</span>
+        <span class="material-symbols-rounded">arrow_forward</span>
+      </button>
+    </div>
+    <cst-data-table
+      [rows]="recentEvents()"
+      (rowClicked)="onEventClick($event)"
+    />
+  </div>
+</div>

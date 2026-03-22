@@ -1,0 +1,37 @@
+<div class="table-card">
+  <!-- Header Row -->
+  <div class="table-header-row">
+    @for (col of columns(); track col.key) {
+      <div class="header-cell" [style.width]="col.width || 'auto'" [style.flex]="col.width ? 'none' : '1'">
+        <span class="header-label">{{ col.label }}</span>
+      </div>
+    }
+  </div>
+
+  <!-- Data Rows -->
+  @for (row of rows(); track row.id; let i = $index) {
+    <div class="data-row" (click)="rowClicked.emit(row)">
+      <div class="data-cell" [style.flex]="'1'">
+        <span class="cell-title">{{ row.title }}</span>
+      </div>
+      <div class="data-cell" [style.width]="'140px'" [style.flex]="'none'">
+        <span class="cell-text">{{ row.startDate | date:'MMM dd, yyyy' }}</span>
+      </div>
+      <div class="data-cell" [style.width]="'140px'" [style.flex]="'none'">
+        <div class="source-chip" [style.color]="sourceColor(row.source)">
+          <span class="chip-text">{{ row.source }}</span>
+        </div>
+      </div>
+      <div class="data-cell cell-center" [style.width]="'100px'" [style.flex]="'none'">
+        <div class="relevance-badge" [style.background]="badgeBg(row.relevanceScore)">
+          <span class="badge-text" [style.color]="badgeFg(row.relevanceScore)">
+            {{ row.relevanceScore }}
+          </span>
+        </div>
+      </div>
+    </div>
+    @if (i < rows().length - 1) {
+      <div class="row-divider"></div>
+    }
+  }
+</div>

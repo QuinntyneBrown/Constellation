@@ -1,0 +1,22 @@
+<div class="paginator">
+  <span class="pag-label">Items per page:</span>
+  <div class="pag-select" (click)="cyclePagSize()">
+    <span class="pag-select-text">{{ pageSize() }}</span>
+    <span class="material-symbols-rounded pag-arrow">arrow_drop_down</span>
+  </div>
+  <span class="pag-info">{{ rangeLabel() }}</span>
+  <button
+    class="pag-btn"
+    [disabled]="currentPage() <= 1"
+    (click)="pageChanged.emit(currentPage() - 1)"
+  >
+    <span class="material-symbols-rounded">chevron_left</span>
+  </button>
+  <button
+    class="pag-btn"
+    [disabled]="currentPage() >= totalPages()"
+    (click)="pageChanged.emit(currentPage() + 1)"
+  >
+    <span class="material-symbols-rounded">chevron_right</span>
+  </button>
+</div>
