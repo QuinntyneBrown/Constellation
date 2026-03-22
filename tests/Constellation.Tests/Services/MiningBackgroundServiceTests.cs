@@ -72,11 +72,11 @@ public class MiningBackgroundServiceTests
             return Task.FromResult(StoredEvents.FirstOrDefault(e => e.Id == id));
         }
 
-        public Task<List<(string Source, int Count)>> GetSourceSummariesAsync()
+        public Task<List<(string Source, int Count, DateTime? LastSyncTime)>> GetSourceSummariesAsync()
         {
             return Task.FromResult(
                 StoredEvents.GroupBy(e => e.Source)
-                    .Select(g => (g.Key, g.Count()))
+                    .Select(g => (g.Key, g.Count(), (DateTime?)g.Max(e => e.CreatedAt)))
                     .ToList());
         }
 
