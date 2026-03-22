@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
@@ -5,6 +6,7 @@ using Constellation.Models;
 using Constellation.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace Constellation.Services.Sources;
 
@@ -13,6 +15,7 @@ public class MeetupEventSource : IEventSource
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly IConfiguration _configuration;
     private readonly ILogger<MeetupEventSource> _logger;
+    private readonly MiningOptions _miningOptions;
 
     private static readonly string[] SearchTerms =
     {
@@ -26,11 +29,13 @@ public class MeetupEventSource : IEventSource
     public MeetupEventSource(
         IHttpClientFactory httpClientFactory,
         IConfiguration configuration,
-        ILogger<MeetupEventSource> logger)
+        ILogger<MeetupEventSource> logger,
+        IOptions<MiningOptions> miningOptions)
     {
         _httpClientFactory = httpClientFactory;
         _configuration = configuration;
         _logger = logger;
+        _miningOptions = miningOptions.Value;
     }
 
     public async Task<IEnumerable<DiscoveredEvent>> DiscoverEventsAsync(CancellationToken cancellationToken = default)
@@ -79,12 +84,15 @@ public class MeetupEventSource : IEventSource
         return results;
     }
 
-    private static string BuildGraphQLQuery(string searchTerm)
+    private string BuildGraphQLQuery(string searchTerm)
     {
         var escapedTerm = searchTerm.Replace("\"", "\\\"");
+        var lat = _miningOptions.Latitude.ToString(CultureInfo.InvariantCulture);
+        var lon = _miningOptions.Longitude.ToString(CultureInfo.InvariantCulture);
+        var radius = _miningOptions.RadiusKm;
         return $$"""
             {
-              keywordSearch(filter: { query: "{{escapedTerm}}" }, input: { first: 20 }) {
+              keywordSearch(filter: { query: "{{escapedTerm}}", lat: {{lat}}, lon: {{lon}}, radius: {{radius}}, source: EVENTS }, input: { first: 20 }) {
                 edges {
                   node {
                     id

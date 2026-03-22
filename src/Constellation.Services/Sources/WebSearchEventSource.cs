@@ -4,6 +4,7 @@ using Constellation.Models;
 using Constellation.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace Constellation.Services.Sources;
 
@@ -12,6 +13,7 @@ public class WebSearchEventSource : IEventSource
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly IConfiguration _configuration;
     private readonly ILogger<WebSearchEventSource> _logger;
+    private readonly MiningOptions _miningOptions;
 
     private static readonly string[] SearchTerms =
     {
@@ -26,11 +28,13 @@ public class WebSearchEventSource : IEventSource
     public WebSearchEventSource(
         IHttpClientFactory httpClientFactory,
         IConfiguration configuration,
-        ILogger<WebSearchEventSource> logger)
+        ILogger<WebSearchEventSource> logger,
+        IOptions<MiningOptions> miningOptions)
     {
         _httpClientFactory = httpClientFactory;
         _configuration = configuration;
         _logger = logger;
+        _miningOptions = miningOptions.Value;
     }
 
     public async Task<IEnumerable<DiscoveredEvent>> DiscoverEventsAsync(CancellationToken cancellationToken = default)
@@ -51,7 +55,9 @@ public class WebSearchEventSource : IEventSource
         {
             try
             {
-                var encodedTerm = Uri.EscapeDataString(term);
+                var geoQualifier = string.Join(" ", _miningOptions.Cities);
+                var qualifiedTerm = $"{term} {geoQualifier}";
+                var encodedTerm = Uri.EscapeDataString(qualifiedTerm);
                 var url = $"https://api.bing.microsoft.com/v7.0/search?q={encodedTerm}&count=20&responseFilter=Webpages";
 
                 var response = await client.GetAsync(url, cancellationToken);

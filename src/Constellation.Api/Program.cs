@@ -11,6 +11,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ConstellationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Mining options
+builder.Services.Configure<MiningOptions>(builder.Configuration.GetSection(MiningOptions.SectionName));
+builder.Services.PostConfigure<MiningOptions>(options => options.ApplyDefaults());
+
 // Repositories
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 

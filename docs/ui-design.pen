@@ -1,0 +1,3356 @@
+{
+  "version": "2.9",
+  "children": [
+    {
+      "type": "frame",
+      "id": "GdRWi",
+      "x": 0,
+      "y": 0,
+      "name": "Dashboard",
+      "width": 1440,
+      "height": 900,
+      "fill": "$bg-primary",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "DttlP",
+          "name": "toolbar",
+          "width": "fill_container",
+          "height": 64,
+          "fill": "$toolbar-bg",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "$border"
+          },
+          "gap": 16,
+          "padding": [
+            0,
+            16
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "fS2yP",
+              "name": "menuBtn",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "menu",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "$on-surface-medium"
+            },
+            {
+              "type": "text",
+              "id": "0RaUL",
+              "name": "toolbarTitle",
+              "fill": "$on-surface",
+              "content": "Constellation",
+              "fontFamily": "Roboto",
+              "fontSize": 20,
+              "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "eZaMh",
+              "name": "toolbarSpacer",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "icon_font",
+              "id": "C7kpa",
+              "name": "searchIcon",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "search",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "$on-surface-medium"
+            },
+            {
+              "type": "icon_font",
+              "id": "mOJ9s",
+              "name": "notifIcon",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "notifications",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "$on-surface-medium"
+            },
+            {
+              "type": "frame",
+              "id": "w7E34",
+              "name": "avatarCircle",
+              "width": 36,
+              "height": 36,
+              "fill": "$primary",
+              "cornerRadius": 18,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "bKdY3",
+                  "name": "avatarText",
+                  "fill": "$on-surface",
+                  "content": "QA",
+                  "fontFamily": "Roboto",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ayO31",
+          "name": "bodyRow",
+          "width": "fill_container",
+          "height": "fill_container",
+          "children": [
+            {
+              "id": "aowmc",
+              "type": "ref",
+              "ref": "bZ84Z",
+              "width": 260,
+              "height": "fill_container",
+              "name": "sidenavInst",
+              "x": 0
+            },
+            {
+              "type": "frame",
+              "id": "JflLK",
+              "name": "mainContent",
+              "clip": true,
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 32,
+              "padding": [
+                32,
+                40
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "CpbaV",
+                  "name": "pageHeader",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "91xiD",
+                      "name": "pageTitle",
+                      "fill": "$on-surface",
+                      "content": "Dashboard",
+                      "fontFamily": "Roboto",
+                      "fontSize": 28,
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "frame",
+                      "id": "7Vy0L",
+                      "name": "headerActions",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "3h8aG",
+                          "name": "refreshBtn",
+                          "fill": "$bg-surface",
+                          "cornerRadius": 8,
+                          "gap": 8,
+                          "padding": [
+                            10,
+                            20
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "86LO7",
+                              "name": "refreshIcon",
+                              "width": 18,
+                              "height": 18,
+                              "iconFontName": "refresh",
+                              "iconFontFamily": "Material Symbols Rounded",
+                              "fill": "$on-surface-medium"
+                            },
+                            {
+                              "type": "text",
+                              "id": "sUy7z",
+                              "name": "refreshLabel",
+                              "fill": "$on-surface-medium",
+                              "content": "Refresh",
+                              "fontFamily": "Roboto",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "7SXw6",
+                  "name": "statsRow",
+                  "width": "fill_container",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "id": "mm2AJ",
+                      "type": "ref",
+                      "ref": "BtALe",
+                      "width": "fill_container",
+                      "name": "card1",
+                      "x": 0,
+                      "y": 0,
+                      "descendants": {
+                        "DLhW8": {
+                          "width": "fill_container"
+                        },
+                        "nSopV": {
+                          "x": 162
+                        },
+                        "yHuMo": {
+                          "width": "fill_container"
+                        }
+                      }
+                    },
+                    {
+                      "id": "IPvBv",
+                      "type": "ref",
+                      "ref": "BtALe",
+                      "width": "fill_container",
+                      "name": "card2",
+                      "x": 280,
+                      "y": 0,
+                      "descendants": {
+                        "DLhW8": {
+                          "width": "fill_container"
+                        },
+                        "fa2Po": {
+                          "iconFontName": "cloud_sync"
+                        },
+                        "nSopV": {
+                          "x": 178
+                        },
+                        "y9zec": {
+                          "content": "+3"
+                        },
+                        "yHuMo": {
+                          "width": "fill_container"
+                        },
+                        "zpxxI": {
+                          "content": "3"
+                        },
+                        "bRGOn": {
+                          "content": "Sources Active"
+                        }
+                      }
+                    },
+                    {
+                      "id": "HTz4f",
+                      "type": "ref",
+                      "ref": "BtALe",
+                      "width": "fill_container",
+                      "name": "card3",
+                      "x": 560,
+                      "y": 0,
+                      "descendants": {
+                        "DLhW8": {
+                          "width": "fill_container"
+                        },
+                        "fa2Po": {
+                          "iconFontName": "date_range"
+                        },
+                        "nSopV": {
+                          "x": 162
+                        },
+                        "y9zec": {
+                          "content": "+28%"
+                        },
+                        "yHuMo": {
+                          "width": "fill_container"
+                        },
+                        "zpxxI": {
+                          "content": "47"
+                        },
+                        "bRGOn": {
+                          "content": "Events This Week"
+                        }
+                      }
+                    },
+                    {
+                      "id": "h8AEH",
+                      "type": "ref",
+                      "ref": "BtALe",
+                      "width": "fill_container",
+                      "name": "card4",
+                      "x": 840,
+                      "y": 0,
+                      "descendants": {
+                        "DLhW8": {
+                          "width": "fill_container"
+                        },
+                        "fa2Po": {
+                          "iconFontName": "analytics"
+                        },
+                        "nSopV": {
+                          "x": 169
+                        },
+                        "y9zec": {
+                          "content": "+5%"
+                        },
+                        "yHuMo": {
+                          "width": "fill_container"
+                        },
+                        "zpxxI": {
+                          "content": "8.4"
+                        },
+                        "bRGOn": {
+                          "content": "Avg Relevance"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "r4wJE",
+                  "name": "recentEventsSection",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "0IopG",
+                      "name": "tableTitleRow",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Y2UfX",
+                          "name": "tableTitle",
+                          "fill": "$on-surface",
+                          "content": "Recent Events",
+                          "fontFamily": "Roboto",
+                          "fontSize": 20,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "PDyWx",
+                          "name": "viewAllBtn",
+                          "fill": "$primary",
+                          "cornerRadius": 8,
+                          "gap": 8,
+                          "padding": [
+                            10,
+                            24
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "8cJaC",
+                              "name": "viewAllLabel",
+                              "fill": "$on-surface",
+                              "content": "View All Events",
+                              "fontFamily": "Roboto",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "icon_font",
+                              "id": "5pIWZ",
+                              "name": "viewAllIcon",
+                              "width": 18,
+                              "height": 18,
+                              "iconFontName": "arrow_forward",
+                              "iconFontFamily": "Material Symbols Rounded",
+                              "fill": "$on-surface"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "0DoAN",
+                      "name": "tableCard",
+                      "clip": true,
+                      "width": "fill_container",
+                      "fill": "$bg-surface",
+                      "cornerRadius": 12,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "ajcRp",
+                          "name": "tableHeaderRow",
+                          "width": "fill_container",
+                          "fill": "$bg-surface-variant",
+                          "padding": [
+                            14,
+                            24
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "bM1W1",
+                              "name": "hCell1",
+                              "width": "fill_container",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "2hnFS",
+                                  "name": "hLabel1",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Title",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 12,
+                                  "fontWeight": "500",
+                                  "letterSpacing": 0.5
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "ErBgd",
+                              "name": "hCell2",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "k80Xg",
+                                  "name": "hLabel2",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Date",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 12,
+                                  "fontWeight": "500",
+                                  "letterSpacing": 0.5
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "uKqYu",
+                              "name": "hCell3",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "8ffjk",
+                                  "name": "hLabel3",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Source",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 12,
+                                  "fontWeight": "500",
+                                  "letterSpacing": 0.5
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "1UTio",
+                              "name": "hCell4",
+                              "width": 100,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "ny9uY",
+                                  "name": "hLabel4",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Relevance",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 12,
+                                  "fontWeight": "500",
+                                  "letterSpacing": 0.5
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "5q8MH",
+                          "name": "row1",
+                          "width": "fill_container",
+                          "padding": [
+                            16,
+                            24
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "QI5V0",
+                              "name": "r1c1",
+                              "width": "fill_container",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "IUmIU",
+                                  "name": "r1t1",
+                                  "fill": "$on-surface",
+                                  "content": "BEYA STEM Conference 2026",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "UlVad",
+                              "name": "r1c2",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "2BTgq",
+                                  "name": "r1t2",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Mar 28, 2026",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "D78XP",
+                              "name": "r1c3",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "ObJ2u",
+                                  "name": "r1chip",
+                                  "fill": "$chip-bg",
+                                  "cornerRadius": 16,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "fBGP4",
+                                      "name": "r1chipT",
+                                      "fill": "$on-surface-medium",
+                                      "content": "Eventbrite",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "normal"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "l0O6y",
+                              "name": "r1c4",
+                              "width": 100,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "PAiOT",
+                                  "name": "r1badge",
+                                  "fill": "#1B5E20",
+                                  "cornerRadius": 16,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "plkS0",
+                                      "name": "r1badgeT",
+                                      "fill": "$success",
+                                      "content": "9.2",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "SfFZz",
+                          "name": "divider1",
+                          "fill": "$divider",
+                          "width": "fill_container",
+                          "height": 1
+                        },
+                        {
+                          "type": "frame",
+                          "id": "8g3Nb",
+                          "name": "row2",
+                          "width": "fill_container",
+                          "padding": [
+                            16,
+                            24
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "nQU8J",
+                              "name": "r2c1",
+                              "width": "fill_container",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "gCrqg",
+                                  "name": "r2t1",
+                                  "fill": "$on-surface",
+                                  "content": "NSBE Toronto Chapter Meetup",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "3GbSQ",
+                              "name": "r2c2",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "EA2sk",
+                                  "name": "r2t2",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Apr 05, 2026",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "cxqyn",
+                              "name": "r2c3",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "r9YsL",
+                                  "name": "r2chip",
+                                  "fill": "$chip-bg",
+                                  "cornerRadius": 16,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "SH5c8",
+                                      "name": "r2chipT",
+                                      "fill": "$on-surface-medium",
+                                      "content": "Meetup",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "normal"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "dqSPi",
+                              "name": "r2c4",
+                              "width": 100,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "s5wMf",
+                                  "name": "r2badge",
+                                  "fill": "#1B5E20",
+                                  "cornerRadius": 16,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "AynEo",
+                                      "name": "r2badgeT",
+                                      "fill": "$success",
+                                      "content": "8.7",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "2CONM",
+                          "name": "dataRow1",
+                          "width": "fill_container",
+                          "stroke": {
+                            "thickness": {
+                              "bottom": 1
+                            },
+                            "fill": "$divider"
+                          },
+                          "padding": [
+                            14,
+                            24
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "v3rZI",
+                              "name": "dCell1",
+                              "width": "fill_container",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "b1SiH",
+                                  "name": "r1t1",
+                                  "fill": "$on-surface",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "NSBE Toronto Aerospace Networking Night",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "sgrFT",
+                              "name": "dCell2",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "561JK",
+                                  "name": "r1t2",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Mar 28, 2026",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "qNGq9",
+                              "name": "dCell3",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "Q6j9y",
+                                  "name": "r1chip",
+                                  "fill": "$chip-bg",
+                                  "cornerRadius": 12,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "ojwMs",
+                                      "name": "r1chipT",
+                                      "fill": "$primary",
+                                      "content": "Eventbrite",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "zlmsv",
+                              "name": "dCell4",
+                              "width": 100,
+                              "justifyContent": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "uWxRZ",
+                                  "name": "r1badge",
+                                  "fill": "$success",
+                                  "cornerRadius": 4,
+                                  "padding": [
+                                    4,
+                                    10
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "4GFBf",
+                                      "name": "r1badgeT",
+                                      "fill": "$bg-primary",
+                                      "content": "0.85",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "Na4pn",
+                          "name": "div2",
+                          "fill": "$divider",
+                          "width": "fill_container",
+                          "height": 1
+                        },
+                        {
+                          "type": "frame",
+                          "id": "QCYPn",
+                          "name": "row3",
+                          "width": "fill_container",
+                          "padding": [
+                            16,
+                            24
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "Q0J9P",
+                              "name": "r3c1",
+                              "width": "fill_container",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "KoaDC",
+                                  "name": "r3t1",
+                                  "fill": "$on-surface",
+                                  "content": "Black in Aerospace Networking Night",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "0qtKK",
+                              "name": "r3c2",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Ubpcq",
+                                  "name": "r3t2",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Apr 12, 2026",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "21yqD",
+                              "name": "r3c3",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "vFyNN",
+                                  "name": "r3chip",
+                                  "fill": "$chip-bg",
+                                  "cornerRadius": 16,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "JQkpy",
+                                      "name": "r3chipT",
+                                      "fill": "$on-surface-medium",
+                                      "content": "Web Search",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "normal"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "YehHj",
+                              "name": "r3c4",
+                              "width": 100,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "p2wwf",
+                                  "name": "r3badge",
+                                  "fill": "#4A148C",
+                                  "cornerRadius": 16,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "tgEHN",
+                                      "name": "r3badgeT",
+                                      "fill": "$primary",
+                                      "content": "7.5",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "k8KGE",
+                          "name": "div3",
+                          "fill": "$divider",
+                          "width": "fill_container",
+                          "height": 1
+                        },
+                        {
+                          "type": "frame",
+                          "id": "LQOVd",
+                          "name": "row4",
+                          "width": "fill_container",
+                          "padding": [
+                            16,
+                            24
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "3LbLa",
+                              "name": "r4c1",
+                              "width": "fill_container",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "V1Z1i",
+                                  "name": "r4t1",
+                                  "fill": "$on-surface",
+                                  "content": "Defence Industry Diversity Summit",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "V71oa",
+                              "name": "r4c2",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "6KYvG",
+                                  "name": "r4t2",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Apr 20, 2026",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Ge5hb",
+                              "name": "r4c3",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "zooev",
+                                  "name": "r4chip",
+                                  "fill": "$chip-bg",
+                                  "cornerRadius": 16,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "bHQ3b",
+                                      "name": "r4chipT",
+                                      "fill": "$on-surface-medium",
+                                      "content": "Eventbrite",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "normal"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "R01Ug",
+                              "name": "r4c4",
+                              "width": 100,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "0Ex3z",
+                                  "name": "r4badge",
+                                  "fill": "#1B5E20",
+                                  "cornerRadius": 16,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "0cZnA",
+                                      "name": "r4badgeT",
+                                      "fill": "$success",
+                                      "content": "8.9",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "YQSHt",
+                          "name": "dataRow2",
+                          "width": "fill_container",
+                          "stroke": {
+                            "thickness": {
+                              "bottom": 1
+                            },
+                            "fill": "$divider"
+                          },
+                          "padding": [
+                            14,
+                            24
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "ZPnhP",
+                              "name": "dCell1",
+                              "width": "fill_container",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "wyWSe",
+                                  "name": "r2t1",
+                                  "fill": "$on-surface",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Black in Defence Canada Meetup",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "KitKb",
+                              "name": "dCell2",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "fQKvH",
+                                  "name": "r2t2",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Apr 02, 2026",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "bIznT",
+                              "name": "dCell3",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "HtrGz",
+                                  "name": "r2chip",
+                                  "fill": "$chip-bg",
+                                  "cornerRadius": 12,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "IQUrO",
+                                      "name": "r2chipT",
+                                      "fill": "$secondary",
+                                      "content": "Meetup",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "uLFW9",
+                              "name": "dCell4",
+                              "width": 100,
+                              "justifyContent": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "mF5tF",
+                                  "name": "r2badge",
+                                  "fill": "$success",
+                                  "cornerRadius": 4,
+                                  "padding": [
+                                    4,
+                                    10
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "S915z",
+                                      "name": "r2badgeT",
+                                      "fill": "$bg-primary",
+                                      "content": "0.78",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "T0C5S",
+                          "name": "dataRow3",
+                          "width": "fill_container",
+                          "stroke": {
+                            "thickness": {
+                              "bottom": 1
+                            },
+                            "fill": "$divider"
+                          },
+                          "padding": [
+                            14,
+                            24
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "dY3cc",
+                              "name": "dCell1",
+                              "width": "fill_container",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "5oNWQ",
+                                  "name": "r3t1",
+                                  "fill": "$on-surface",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Mississauga STEM Professionals Mixer",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Il3vU",
+                              "name": "dCell2",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "JzjPV",
+                                  "name": "r3t2",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Apr 10, 2026",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "MZtDB",
+                              "name": "dCell3",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "q94g9",
+                                  "name": "r3chip",
+                                  "fill": "$chip-bg",
+                                  "cornerRadius": 12,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "1QIaR",
+                                      "name": "r3chipT",
+                                      "fill": "$warning",
+                                      "content": "WebSearch",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "gZYRV",
+                              "name": "dCell4",
+                              "width": 100,
+                              "justifyContent": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "K34PL",
+                                  "name": "r3badge",
+                                  "fill": "$warning",
+                                  "cornerRadius": 4,
+                                  "padding": [
+                                    4,
+                                    10
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "ZOf48",
+                                      "name": "r3badgeT",
+                                      "fill": "$bg-primary",
+                                      "content": "0.62",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "8q6yk",
+                          "name": "dataRow4",
+                          "width": "fill_container",
+                          "stroke": {
+                            "thickness": {
+                              "bottom": 1
+                            },
+                            "fill": "$divider"
+                          },
+                          "padding": [
+                            14,
+                            24
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "aqTT0",
+                              "name": "dCell1",
+                              "width": "fill_container",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "pWb6I",
+                                  "name": "r4t1",
+                                  "fill": "$on-surface",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "BEYA STEM Conference — Toronto Satellite",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Yd9aR",
+                              "name": "dCell2",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "e7j2Z",
+                                  "name": "r4t2",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Apr 15, 2026",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "JnHS3",
+                              "name": "dCell3",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "pUVYB",
+                                  "name": "r4chip",
+                                  "fill": "$chip-bg",
+                                  "cornerRadius": 12,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "CF90z",
+                                      "name": "r4chipT",
+                                      "fill": "$primary",
+                                      "content": "Eventbrite",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "ZOaxt",
+                              "name": "dCell4",
+                              "width": 100,
+                              "justifyContent": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "03gZJ",
+                                  "name": "r4badge",
+                                  "fill": "$success",
+                                  "cornerRadius": 4,
+                                  "padding": [
+                                    4,
+                                    10
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "O8QAD",
+                                      "name": "r4badgeT",
+                                      "fill": "$bg-primary",
+                                      "content": "0.91",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "1sgl4",
+                          "name": "dataRow5",
+                          "width": "fill_container",
+                          "padding": [
+                            14,
+                            24
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "zMpL8",
+                              "name": "dCell1",
+                              "width": "fill_container",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "JqjXQ",
+                                  "name": "r5t1",
+                                  "fill": "$on-surface",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Black Engineers of Canada — GTA Chapter",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "hDTN5",
+                              "name": "dCell2",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Z7t7v",
+                                  "name": "r5t2",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Apr 22, 2026",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "1ulmI",
+                              "name": "dCell3",
+                              "width": 140,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "Zwhlt",
+                                  "name": "r5chip",
+                                  "fill": "$chip-bg",
+                                  "cornerRadius": 12,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "goKBq",
+                                      "name": "r5chipT",
+                                      "fill": "$secondary",
+                                      "content": "Meetup",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "OMSLt",
+                              "name": "dCell4",
+                              "width": 100,
+                              "justifyContent": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "2rFMR",
+                                  "name": "r5badge",
+                                  "fill": "$success",
+                                  "cornerRadius": 4,
+                                  "padding": [
+                                    4,
+                                    10
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "Cav3o",
+                                      "name": "r5badgeT",
+                                      "fill": "$bg-primary",
+                                      "content": "0.73",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "mPr0c",
+      "x": 0,
+      "y": 1050,
+      "name": "Events List",
+      "width": 1440,
+      "height": 900,
+      "fill": "$bg-primary",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "r04Py",
+          "name": "toolbar",
+          "width": "fill_container",
+          "height": 64,
+          "fill": "$toolbar-bg",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "$border"
+          },
+          "gap": 16,
+          "padding": [
+            0,
+            16
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "HBJ9t",
+              "name": "menuBtn2",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "menu",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "$on-surface-medium"
+            },
+            {
+              "type": "text",
+              "id": "LHKIe",
+              "name": "toolTitle2",
+              "fill": "$on-surface",
+              "content": "Constellation",
+              "fontFamily": "Roboto",
+              "fontSize": 20,
+              "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "SaMTd",
+              "name": "spacer2",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "icon_font",
+              "id": "RlpKX",
+              "name": "search2",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "search",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "$on-surface-medium"
+            },
+            {
+              "type": "icon_font",
+              "id": "wTcsJ",
+              "name": "notif2",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "notifications",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "$on-surface-medium"
+            },
+            {
+              "type": "frame",
+              "id": "YkJQK",
+              "name": "avatar2",
+              "width": 36,
+              "height": 36,
+              "fill": "$primary",
+              "cornerRadius": 18,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "hmjX8",
+                  "name": "avatarT2",
+                  "fill": "$on-surface",
+                  "content": "QA",
+                  "fontFamily": "Roboto",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "8OW50",
+          "name": "bodyRow",
+          "width": "fill_container",
+          "height": "fill_container",
+          "children": [
+            {
+              "id": "pnrrs",
+              "type": "ref",
+              "ref": "bZ84Z",
+              "width": 260,
+              "height": "fill_container",
+              "name": "sideInst2",
+              "x": 0,
+              "descendants": {
+                "uFXYC": {
+                  "fill": "#00000000"
+                },
+                "fJC7Q": {
+                  "fill": "$on-surface-medium"
+                },
+                "aBelQ": {
+                  "fill": "$on-surface-medium",
+                  "fontWeight": "400"
+                },
+                "WioDV": {
+                  "fill": "$bg-surface-variant"
+                },
+                "Zh2nd": {
+                  "fill": "$primary"
+                },
+                "etRsE": {
+                  "fill": "$on-surface",
+                  "fontWeight": "500"
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "gfRFE",
+              "name": "eventsMain",
+              "clip": true,
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "padding": [
+                32,
+                40
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Oe8k2",
+                  "name": "evHeader",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "cPph1",
+                      "name": "evTitle",
+                      "fill": "$on-surface",
+                      "content": "Events",
+                      "fontFamily": "Roboto",
+                      "fontSize": 28,
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rAVpP",
+                      "name": "evCount",
+                      "fill": "$bg-surface-variant",
+                      "cornerRadius": 16,
+                      "padding": [
+                        6,
+                        14
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "DizUY",
+                          "name": "evCountT",
+                          "fill": "$on-surface-medium",
+                          "content": "1,284 results",
+                          "fontFamily": "Roboto",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "b2mmh",
+                  "name": "filterBar",
+                  "width": "fill_container",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "YZj6U",
+                      "name": "searchField",
+                      "width": "fill_container",
+                      "height": 48,
+                      "fill": "$bg-surface",
+                      "cornerRadius": 8,
+                      "gap": 12,
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "sFilZ",
+                          "name": "searchIc",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "search",
+                          "iconFontFamily": "Material Symbols Rounded",
+                          "fill": "$on-surface-disabled"
+                        },
+                        {
+                          "type": "text",
+                          "id": "NAF9v",
+                          "name": "searchPlaceholder",
+                          "fill": "$on-surface-disabled",
+                          "content": "Search events...",
+                          "fontFamily": "Roboto",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "PE47o",
+                      "name": "sourceSelect",
+                      "width": 180,
+                      "height": 48,
+                      "fill": "$bg-surface",
+                      "cornerRadius": 8,
+                      "gap": 8,
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "HoRZq",
+                          "name": "sourceLabel",
+                          "fill": "$on-surface-medium",
+                          "content": "All Sources",
+                          "fontFamily": "Roboto",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "R4X2s",
+                          "name": "sourceArrow",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "arrow_drop_down",
+                          "iconFontFamily": "Material Symbols Rounded",
+                          "fill": "$on-surface-medium"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "r5tpB",
+                      "name": "dateField",
+                      "width": 200,
+                      "height": 48,
+                      "fill": "$bg-surface",
+                      "cornerRadius": 8,
+                      "gap": 8,
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ME4hz",
+                          "name": "dateLabel",
+                          "fill": "$on-surface-medium",
+                          "content": "Date range",
+                          "fontFamily": "Roboto",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "vVVNC",
+                          "name": "dateIcon",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "calendar_today",
+                          "iconFontFamily": "Material Symbols Rounded",
+                          "fill": "$on-surface-medium"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "2u16L",
+                  "name": "eventsList",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "zWamX",
+                      "name": "eventCard1",
+                      "width": "fill_container",
+                      "fill": "$bg-surface",
+                      "cornerRadius": 12,
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "vWzAq",
+                          "name": "ec1top",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "jSWrV",
+                              "name": "ec1title",
+                              "fill": "$on-surface",
+                              "content": "BEYA STEM Conference 2026",
+                              "fontFamily": "Roboto",
+                              "fontSize": 16,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "7KoW6",
+                              "name": "ec1badge",
+                              "fill": "#1B5E20",
+                              "cornerRadius": 16,
+                              "padding": [
+                                4,
+                                12
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "kg6wI",
+                                  "name": "ec1badgeT",
+                                  "fill": "$success",
+                                  "content": "9.2",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "jncxH",
+                          "name": "ec1meta",
+                          "width": "fill_container",
+                          "gap": 16,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "LHLQ4",
+                              "name": "ec1dateIc",
+                              "width": 16,
+                              "height": 16,
+                              "iconFontName": "calendar_today",
+                              "iconFontFamily": "Material Symbols Rounded",
+                              "fill": "$on-surface-disabled"
+                            },
+                            {
+                              "type": "text",
+                              "id": "LgTlL",
+                              "name": "ec1date",
+                              "fill": "$on-surface-medium",
+                              "content": "Mar 28, 2026",
+                              "fontFamily": "Roboto",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "icon_font",
+                              "id": "RR7tg",
+                              "name": "ec1locIc",
+                              "width": 16,
+                              "height": 16,
+                              "iconFontName": "location_on",
+                              "iconFontFamily": "Material Symbols Rounded",
+                              "fill": "$on-surface-disabled"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ucuMb",
+                              "name": "ec1loc",
+                              "fill": "$on-surface-medium",
+                              "content": "Metro Toronto Convention Centre",
+                              "fontFamily": "Roboto",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "rkz27",
+                              "name": "ec1chip",
+                              "fill": "$chip-bg",
+                              "cornerRadius": 16,
+                              "padding": [
+                                4,
+                                12
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "xWwOo",
+                                  "name": "ec1chipT",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Eventbrite",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 12,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "tJQ9Y",
+                          "name": "ec1desc",
+                          "fill": "$on-surface-medium",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Annual conference celebrating Black excellence in STEM fields, featuring keynotes from aerospace and defence industry leaders.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Roboto",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "kOOOj",
+                      "name": "eventCard2",
+                      "width": "fill_container",
+                      "fill": "$bg-surface",
+                      "cornerRadius": 12,
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "PKy3v",
+                          "name": "ec2top",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "td2my",
+                              "name": "ec2title",
+                              "fill": "$on-surface",
+                              "content": "NSBE Toronto Chapter Meetup",
+                              "fontFamily": "Roboto",
+                              "fontSize": 16,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "qbT3C",
+                              "name": "ec2badge",
+                              "fill": "#1B5E20",
+                              "cornerRadius": 16,
+                              "padding": [
+                                4,
+                                12
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "08nC7",
+                                  "name": "ec2badgeT",
+                                  "fill": "$success",
+                                  "content": "8.7",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "P1rw0",
+                          "name": "ec2meta",
+                          "width": "fill_container",
+                          "gap": 16,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "61pYF",
+                              "name": "ec2dateIc",
+                              "width": 16,
+                              "height": 16,
+                              "iconFontName": "calendar_today",
+                              "iconFontFamily": "Material Symbols Rounded",
+                              "fill": "$on-surface-disabled"
+                            },
+                            {
+                              "type": "text",
+                              "id": "EoFtb",
+                              "name": "ec2date",
+                              "fill": "$on-surface-medium",
+                              "content": "Apr 05, 2026",
+                              "fontFamily": "Roboto",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "icon_font",
+                              "id": "d1C4g",
+                              "name": "ec2locIc",
+                              "width": 16,
+                              "height": 16,
+                              "iconFontName": "location_on",
+                              "iconFontFamily": "Material Symbols Rounded",
+                              "fill": "$on-surface-disabled"
+                            },
+                            {
+                              "type": "text",
+                              "id": "JKEiO",
+                              "name": "ec2loc",
+                              "fill": "$on-surface-medium",
+                              "content": "Mississauga Civic Centre",
+                              "fontFamily": "Roboto",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "NLRiP",
+                              "name": "ec2chip",
+                              "fill": "$chip-bg",
+                              "cornerRadius": 16,
+                              "padding": [
+                                4,
+                                12
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "xGvdd",
+                                  "name": "ec2chipT",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Meetup",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 12,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "TzCQo",
+                          "name": "ec2desc",
+                          "fill": "$on-surface-medium",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Monthly networking event for Black engineers in the Greater Toronto Area. Panel discussion on careers in defence technology.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Roboto",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "7p6N8",
+                  "name": "paginator",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "KocTh",
+                      "name": "pagLabel",
+                      "fill": "$on-surface-medium",
+                      "content": "Items per page:",
+                      "fontFamily": "Roboto",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "To6eL",
+                      "name": "pagSelect",
+                      "fill": "$bg-surface",
+                      "cornerRadius": 4,
+                      "gap": 4,
+                      "padding": [
+                        6,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "G7YcH",
+                          "name": "pagSelT",
+                          "fill": "$on-surface",
+                          "content": "20",
+                          "fontFamily": "Roboto",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "01GpN",
+                          "name": "pagSelIc",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "arrow_drop_down",
+                          "iconFontFamily": "Material Symbols Rounded",
+                          "fill": "$on-surface-medium"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "yePSC",
+                      "name": "pagInfo",
+                      "fill": "$on-surface-medium",
+                      "content": "1 – 20 of 1,284",
+                      "fontFamily": "Roboto",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "DF6FH",
+                      "name": "pagPrev",
+                      "width": 32,
+                      "height": 32,
+                      "cornerRadius": 16,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "cSjgN",
+                          "name": "pagPrevIc",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "chevron_left",
+                          "iconFontFamily": "Material Symbols Rounded",
+                          "fill": "$on-surface-disabled"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "mSLUg",
+                      "name": "pagNext",
+                      "width": 32,
+                      "height": 32,
+                      "cornerRadius": 16,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "qRCIG",
+                          "name": "pagNextIc",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "chevron_right",
+                          "iconFontFamily": "Material Symbols Rounded",
+                          "fill": "$on-surface-medium"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ibzMF",
+          "name": "toolbar",
+          "width": "fill_container",
+          "height": 64,
+          "fill": "$toolbar-bg",
+          "gap": 16,
+          "padding": [
+            0,
+            16
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "fN5A6",
+              "name": "menuBtn2",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "menu",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "$on-surface-medium"
+            },
+            {
+              "type": "text",
+              "id": "nyY35",
+              "name": "toolTitle2",
+              "fill": "$on-surface",
+              "content": "Constellation",
+              "fontFamily": "Roboto",
+              "fontSize": 20,
+              "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "1XCtR",
+              "name": "spacer2",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "icon_font",
+              "id": "esMCP",
+              "name": "searchIc2",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "search",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "$on-surface-medium"
+            },
+            {
+              "type": "icon_font",
+              "id": "0h6hJ",
+              "name": "notifIc2",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "notifications",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "$on-surface-medium"
+            },
+            {
+              "type": "frame",
+              "id": "95hJL",
+              "name": "avatar",
+              "width": 36,
+              "height": 36,
+              "fill": "$primary",
+              "cornerRadius": 18,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "U5zL7",
+                  "name": "avText2",
+                  "fill": "$on-surface",
+                  "content": "QA",
+                  "fontFamily": "Roboto",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "QkjAG",
+          "name": "bodyRow",
+          "width": "fill_container",
+          "height": "fill_container",
+          "children": [
+            {
+              "id": "unfEe",
+              "type": "ref",
+              "ref": "bZ84Z",
+              "width": 260,
+              "height": "fill_container",
+              "name": "sidenav2",
+              "x": 0,
+              "descendants": {
+                "uFXYC": {
+                  "fill": "#00000000"
+                },
+                "fJC7Q": {
+                  "fill": "$on-surface-medium"
+                },
+                "aBelQ": {
+                  "fill": "$on-surface-medium"
+                },
+                "WioDV": {
+                  "fill": "$bg-surface-variant"
+                },
+                "Zh2nd": {
+                  "fill": "$primary"
+                },
+                "etRsE": {
+                  "fill": "$on-surface",
+                  "fontWeight": "500"
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "Lqs1e",
+              "name": "mainContent",
+              "clip": true,
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "padding": [
+                32,
+                40
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "J5Ood",
+                  "name": "pageHeader",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "WdWiY",
+                      "name": "pgTitle",
+                      "fill": "$on-surface",
+                      "content": "Events",
+                      "fontFamily": "Roboto",
+                      "fontSize": 28,
+                      "fontWeight": "normal",
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "gPmY3",
+                      "name": "evtCount",
+                      "fill": "$on-surface-medium",
+                      "content": "1,284 events found",
+                      "fontFamily": "Roboto",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Y11pS",
+                  "name": "filterBar",
+                  "width": "fill_container",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "6qB3W",
+                      "name": "searchField",
+                      "width": "fill_container",
+                      "height": 48,
+                      "fill": "$bg-surface",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$border"
+                      },
+                      "gap": 12,
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "OJkZp",
+                          "name": "searchIc",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "search",
+                          "iconFontFamily": "Material Symbols Rounded",
+                          "fill": "$on-surface-medium"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Nr4ia",
+                          "name": "searchTxt",
+                          "fill": "$on-surface-disabled",
+                          "content": "Search events...",
+                          "fontFamily": "Roboto",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Eprtq",
+                      "name": "sourceDropdown",
+                      "width": 180,
+                      "height": 48,
+                      "fill": "$bg-surface",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$border"
+                      },
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "AbVeu",
+                          "name": "srcLabel",
+                          "fill": "$on-surface-medium",
+                          "content": "All Sources",
+                          "fontFamily": "Roboto",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "47Xvr",
+                          "name": "srcArrow",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "keyboard_arrow_down",
+                          "iconFontFamily": "Material Symbols Rounded",
+                          "fill": "$on-surface-medium"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "PuBV5",
+                      "name": "dateRange",
+                      "width": 220,
+                      "height": 48,
+                      "fill": "$bg-surface",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$border"
+                      },
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "OeAk7",
+                          "name": "calIc",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "date_range",
+                          "iconFontFamily": "Material Symbols Rounded",
+                          "fill": "$on-surface-medium"
+                        },
+                        {
+                          "type": "text",
+                          "id": "uhnY5",
+                          "name": "dateTxt",
+                          "fill": "$on-surface-medium",
+                          "content": "Mar 1 — Apr 30, 2026",
+                          "fontFamily": "Roboto",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "lyc6q",
+                  "name": "eventList",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Mzqrs",
+                      "name": "eventCard1",
+                      "width": "fill_container",
+                      "fill": "$bg-surface",
+                      "cornerRadius": 12,
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "qbDVc",
+                          "name": "cardTop",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "BR824",
+                              "name": "c1title",
+                              "fill": "$on-surface",
+                              "content": "NSBE Toronto Aerospace Networking Night",
+                              "fontFamily": "Roboto",
+                              "fontSize": 16,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "GcQvM",
+                              "name": "c1meta",
+                              "gap": 8,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "jNiCl",
+                                  "name": "c1chip",
+                                  "fill": "$chip-bg",
+                                  "cornerRadius": 12,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "0E89M",
+                                      "name": "c1chipT",
+                                      "fill": "$primary",
+                                      "content": "Eventbrite",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "0Z1Po",
+                                  "name": "c1badge",
+                                  "fill": "$success",
+                                  "cornerRadius": 4,
+                                  "padding": [
+                                    4,
+                                    10
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "FPoBp",
+                                      "name": "c1badgeT",
+                                      "fill": "$bg-primary",
+                                      "content": "0.85",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "W12Zd",
+                          "name": "cardInfo",
+                          "width": "fill_container",
+                          "gap": 24,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "Xhj2k",
+                              "name": "c1date",
+                              "gap": 6,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "7ojX3",
+                                  "name": "c1dateIc",
+                                  "width": 16,
+                                  "height": 16,
+                                  "iconFontName": "event",
+                                  "iconFontFamily": "Material Symbols Rounded",
+                                  "fill": "$on-surface-medium"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "GAoPc",
+                                  "name": "c1dateT",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Mar 28, 2026",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "yYEIq",
+                              "name": "c1loc",
+                              "gap": 6,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "acLO4",
+                                  "name": "c1locIc",
+                                  "width": 16,
+                                  "height": 16,
+                                  "iconFontName": "location_on",
+                                  "iconFontFamily": "Material Symbols Rounded",
+                                  "fill": "$on-surface-medium"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "XeNNd",
+                                  "name": "c1locT",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Toronto, ON",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "jsk7S",
+                          "name": "c1desc",
+                          "fill": "$on-surface-medium",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Join fellow Black aerospace and defense professionals for an evening of networking, mentorship, and community building in downtown Toronto. Featuring keynote speakers from major Canadian defense contractors.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Roboto",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "lqKIf",
+                      "name": "eventCard2",
+                      "width": "fill_container",
+                      "fill": "$bg-surface",
+                      "cornerRadius": 12,
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "tEYRu",
+                          "name": "cardTop",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "I9vbX",
+                              "name": "c2title",
+                              "fill": "$on-surface",
+                              "content": "Black in Defence Canada Meetup",
+                              "fontFamily": "Roboto",
+                              "fontSize": 16,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "14MXY",
+                              "name": "c2meta",
+                              "gap": 8,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "TM80z",
+                                  "name": "c2chip",
+                                  "fill": "$chip-bg",
+                                  "cornerRadius": 12,
+                                  "padding": [
+                                    4,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "rfv3t",
+                                      "name": "c2chipT",
+                                      "fill": "$secondary",
+                                      "content": "Meetup",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "xCiPD",
+                                  "name": "c2badge",
+                                  "fill": "$success",
+                                  "cornerRadius": 4,
+                                  "padding": [
+                                    4,
+                                    10
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "Ehere",
+                                      "name": "c2badgeT",
+                                      "fill": "$bg-primary",
+                                      "content": "0.78",
+                                      "fontFamily": "Roboto",
+                                      "fontSize": 12,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "64adB",
+                          "name": "cardInfo",
+                          "width": "fill_container",
+                          "gap": 24,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "OWVlQ",
+                              "name": "c2date",
+                              "gap": 6,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "5biGs",
+                                  "name": "c2dateIc",
+                                  "width": 16,
+                                  "height": 16,
+                                  "iconFontName": "event",
+                                  "iconFontFamily": "Material Symbols Rounded",
+                                  "fill": "$on-surface-medium"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "0aBSh",
+                                  "name": "c2dateT",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Apr 02, 2026",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "QcZrU",
+                              "name": "c2loc",
+                              "gap": 6,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "QloYD",
+                                  "name": "c2locIc",
+                                  "width": 16,
+                                  "height": 16,
+                                  "iconFontName": "location_on",
+                                  "iconFontFamily": "Material Symbols Rounded",
+                                  "fill": "$on-surface-medium"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "3eFQx",
+                                  "name": "c2locT",
+                                  "fill": "$on-surface-medium",
+                                  "content": "Mississauga, ON",
+                                  "fontFamily": "Roboto",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "Td2Gj",
+                          "name": "c2desc",
+                          "fill": "$on-surface-medium",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Monthly meetup for Black professionals working in Canadian defense and security sectors. This month: panel discussion on career paths in defense technology and procurement.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Roboto",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "0VFKd",
+      "x": 0,
+      "y": 2100,
+      "name": "Event Detail",
+      "width": 1440,
+      "height": 900,
+      "fill": "$bg-primary"
+    },
+    {
+      "type": "frame",
+      "id": "heO1t",
+      "x": 0,
+      "y": 3150,
+      "name": "Sources Overview",
+      "width": 1440,
+      "height": 900,
+      "fill": "$bg-primary"
+    },
+    {
+      "type": "frame",
+      "id": "bZ84Z",
+      "x": 1600,
+      "y": 0,
+      "name": "Component/Sidenav",
+      "reusable": true,
+      "width": 260,
+      "height": "fill_container(900)",
+      "fill": "$sidenav-bg",
+      "layout": "vertical",
+      "padding": [
+        24,
+        16
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "EAc5t",
+          "name": "brandRow",
+          "width": "fill_container",
+          "gap": 12,
+          "padding": [
+            0,
+            8,
+            24,
+            8
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "nby1k",
+              "name": "brandIcon",
+              "width": 32,
+              "height": 32,
+              "iconFontName": "stars",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "$primary"
+            },
+            {
+              "type": "text",
+              "id": "23G4R",
+              "name": "brandText",
+              "fill": "$on-surface",
+              "content": "Constellation",
+              "fontFamily": "Roboto",
+              "fontSize": 20,
+              "fontWeight": "500",
+              "letterSpacing": -0.5
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "5lmaH",
+          "name": "navDivider",
+          "fill": "$divider",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "frame",
+          "id": "yngPK",
+          "name": "navList",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 4,
+          "padding": [
+            16,
+            0
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "uFXYC",
+              "name": "nav-dashboard",
+              "width": "fill_container",
+              "fill": "$bg-surface-variant",
+              "cornerRadius": 8,
+              "gap": 16,
+              "padding": [
+                12,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "fJC7Q",
+                  "name": "navIcon1",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "dashboard",
+                  "iconFontFamily": "Material Symbols Rounded",
+                  "fill": "$primary"
+                },
+                {
+                  "type": "text",
+                  "id": "aBelQ",
+                  "name": "navLabel1",
+                  "fill": "$on-surface",
+                  "content": "Dashboard",
+                  "fontFamily": "Roboto",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WioDV",
+              "name": "nav-events",
+              "width": "fill_container",
+              "cornerRadius": 8,
+              "gap": 16,
+              "padding": [
+                12,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "Zh2nd",
+                  "name": "navIcon2",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "event",
+                  "iconFontFamily": "Material Symbols Rounded",
+                  "fill": "$on-surface-medium"
+                },
+                {
+                  "type": "text",
+                  "id": "etRsE",
+                  "name": "navLabel2",
+                  "fill": "$on-surface-medium",
+                  "content": "Events",
+                  "fontFamily": "Roboto",
+                  "fontSize": 14
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "qGBQb",
+              "name": "nav-sources",
+              "width": "fill_container",
+              "cornerRadius": 8,
+              "gap": 16,
+              "padding": [
+                12,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "yC0Q4",
+                  "name": "navIcon3",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "cloud_sync",
+                  "iconFontFamily": "Material Symbols Rounded",
+                  "fill": "$on-surface-medium"
+                },
+                {
+                  "type": "text",
+                  "id": "kGXes",
+                  "name": "navLabel3",
+                  "fill": "$on-surface-medium",
+                  "content": "Sources",
+                  "fontFamily": "Roboto",
+                  "fontSize": 14
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "8L12r",
+              "name": "nav-settings",
+              "width": "fill_container",
+              "cornerRadius": 8,
+              "gap": 16,
+              "padding": [
+                12,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "66QQq",
+                  "name": "navIcon4",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "settings",
+                  "iconFontFamily": "Material Symbols Rounded",
+                  "fill": "$on-surface-medium"
+                },
+                {
+                  "type": "text",
+                  "id": "NKXQA",
+                  "name": "navLabel4",
+                  "fill": "$on-surface-medium",
+                  "content": "Settings",
+                  "fontFamily": "Roboto",
+                  "fontSize": 14
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "BtALe",
+      "x": 1600,
+      "y": 500,
+      "name": "Component/StatCard",
+      "reusable": true,
+      "width": "fill_container(280)",
+      "fill": "$bg-surface",
+      "cornerRadius": 12,
+      "layout": "vertical",
+      "gap": 16,
+      "padding": 24,
+      "children": [
+        {
+          "type": "frame",
+          "id": "DLhW8",
+          "name": "statTop",
+          "width": "fill_container",
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "kBXoI",
+              "name": "iconCircle",
+              "width": 48,
+              "height": 48,
+              "fill": "$bg-surface-variant",
+              "cornerRadius": 24,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "fa2Po",
+                  "name": "statIconInner",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "event",
+                  "iconFontFamily": "Material Symbols Rounded",
+                  "fill": "$primary"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "nSopV",
+              "name": "statTrend",
+              "gap": 4,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "BQjHk",
+                  "name": "statTrendIcon",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "trending_up",
+                  "iconFontFamily": "Material Symbols Rounded",
+                  "fill": "$success"
+                },
+                {
+                  "type": "text",
+                  "id": "y9zec",
+                  "name": "trendText",
+                  "fill": "$success",
+                  "content": "+12%",
+                  "fontFamily": "Roboto",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "yHuMo",
+          "name": "statBottom",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 4,
+          "children": [
+            {
+              "type": "text",
+              "id": "zpxxI",
+              "name": "statValue",
+              "fill": "$on-surface",
+              "content": "1,284",
+              "fontFamily": "Roboto",
+              "fontSize": 32,
+              "fontWeight": "600",
+              "letterSpacing": -1
+            },
+            {
+              "type": "text",
+              "id": "bRGOn",
+              "name": "statLabel",
+              "fill": "$on-surface-medium",
+              "content": "Total Events",
+              "fontFamily": "Roboto",
+              "fontSize": 14
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "bg-primary": {
+      "type": "color",
+      "value": "#121212"
+    },
+    "bg-surface": {
+      "type": "color",
+      "value": "#1E1E1E"
+    },
+    "bg-surface-bright": {
+      "type": "color",
+      "value": "#383838"
+    },
+    "bg-surface-variant": {
+      "type": "color",
+      "value": "#2C2C2C"
+    },
+    "border": {
+      "type": "color",
+      "value": "#333333"
+    },
+    "chip-bg": {
+      "type": "color",
+      "value": "#3A3A3A"
+    },
+    "divider": {
+      "type": "color",
+      "value": "#2C2C2C"
+    },
+    "error": {
+      "type": "color",
+      "value": "#CF6679"
+    },
+    "on-surface": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "on-surface-disabled": {
+      "type": "color",
+      "value": "#6B6B6B"
+    },
+    "on-surface-medium": {
+      "type": "color",
+      "value": "#B0B0B0"
+    },
+    "primary": {
+      "type": "color",
+      "value": "#BB86FC"
+    },
+    "primary-variant": {
+      "type": "color",
+      "value": "#9C5EF7"
+    },
+    "secondary": {
+      "type": "color",
+      "value": "#03DAC6"
+    },
+    "sidenav-bg": {
+      "type": "color",
+      "value": "#1A1A1A"
+    },
+    "success": {
+      "type": "color",
+      "value": "#4CAF50"
+    },
+    "toolbar-bg": {
+      "type": "color",
+      "value": "#1F1F1F"
+    },
+    "warning": {
+      "type": "color",
+      "value": "#FFB74D"
+    }
+  }
+}

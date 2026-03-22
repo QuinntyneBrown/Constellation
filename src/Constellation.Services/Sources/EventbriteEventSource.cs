@@ -1,9 +1,11 @@
+using System.Globalization;
 using System.Net.Http.Json;
 using System.Text.Json;
 using Constellation.Models;
 using Constellation.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace Constellation.Services.Sources;
 
@@ -12,6 +14,7 @@ public class EventbriteEventSource : IEventSource
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly IConfiguration _configuration;
     private readonly ILogger<EventbriteEventSource> _logger;
+    private readonly MiningOptions _miningOptions;
 
     private static readonly string[] SearchTerms =
     {
@@ -26,11 +29,13 @@ public class EventbriteEventSource : IEventSource
     public EventbriteEventSource(
         IHttpClientFactory httpClientFactory,
         IConfiguration configuration,
-        ILogger<EventbriteEventSource> logger)
+        ILogger<EventbriteEventSource> logger,
+        IOptions<MiningOptions> miningOptions)
     {
         _httpClientFactory = httpClientFactory;
         _configuration = configuration;
         _logger = logger;
+        _miningOptions = miningOptions.Value;
     }
 
     public async Task<IEnumerable<DiscoveredEvent>> DiscoverEventsAsync(CancellationToken cancellationToken = default)
@@ -53,7 +58,10 @@ public class EventbriteEventSource : IEventSource
             try
             {
                 var encodedTerm = Uri.EscapeDataString(term);
-                var url = $"https://www.eventbriteapi.com/v3/events/search/?q={encodedTerm}&expand=venue";
+                var lat = _miningOptions.Latitude.ToString(CultureInfo.InvariantCulture);
+                var lon = _miningOptions.Longitude.ToString(CultureInfo.InvariantCulture);
+                var radius = _miningOptions.RadiusKm;
+                var url = $"https://www.eventbriteapi.com/v3/events/search/?q={encodedTerm}&expand=venue&location.latitude={lat}&location.longitude={lon}&location.within={radius}km";
 
                 var response = await client.GetAsync(url, cancellationToken);
                 if (!response.IsSuccessStatusCode)
