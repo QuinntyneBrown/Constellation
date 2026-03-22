@@ -114,12 +114,12 @@ public class EventRepository : IEventRepository
 
     public async Task<List<(string Source, int Count)>> GetSourceSummariesAsync()
     {
-        return await _context.Events
+        var results = await _context.Events
             .GroupBy(e => e.Source)
             .Select(g => new { Source = g.Key, Count = g.Count() })
             .OrderByDescending(x => x.Count)
-            .AsAsyncEnumerable()
-            .Select(x => (x.Source, x.Count))
             .ToListAsync();
+
+        return results.Select(x => (x.Source, x.Count)).ToList();
     }
 }

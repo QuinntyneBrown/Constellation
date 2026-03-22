@@ -1,9 +1,35 @@
+using Constellation.Data;
+using Constellation.Data.Repositories;
+using Constellation.Services;
+using Constellation.Services.Interfaces;
+using Constellation.Services.Sources;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// EF Core with SQL Server
+builder.Services.AddDbContext<ConstellationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Repositories
+builder.Services.AddScoped<IEventRepository, EventRepository>();
+
+// Event sources
+builder.Services.AddSingleton<IEventSource, EventbriteEventSource>();
+builder.Services.AddSingleton<IEventSource, MeetupEventSource>();
+builder.Services.AddSingleton<IEventSource, WebSearchEventSource>();
+
+// Background service
+builder.Services.AddHostedService<MiningBackgroundService>();
+
+// HttpClient
+builder.Services.AddHttpClient();
+
+// Health checks
+builder.Services.AddHealthChecks();
+
+// Controllers + Swagger
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -21,5 +47,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHealthChecks("/healthz");
 
 app.Run();
