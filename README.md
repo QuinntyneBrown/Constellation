@@ -10,24 +10,26 @@ src/
   Constellation.Services/    → Business logic and data mining
   Constellation.Data/        → Entity Framework Core / SQL Server data access
   Constellation.Models/      → Shared domain models
+  Constellation.Web/         → Angular frontend (standalone SPA)
 tests/
-  Constellation.Tests/       → Unit tests
+  Constellation.Tests/       → Unit tests (.NET)
+  Constellation.Web/e2e/     → End-to-end tests (Playwright)
 docs/
   specs/                     → Requirements and specifications
+  ui-design.pen              → UI design file
 ```
 
 ## Prerequisites
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+- [Node.js](https://nodejs.org/) (for the Angular frontend)
 - SQL Server (local or remote)
 
 ## Getting Started
 
-```bash
-# Clone the repository
-git clone https://github.com/<your-org>/Constellation.git
-cd Constellation
+### API (backend)
 
+```bash
 # Restore dependencies
 dotnet restore
 
@@ -37,8 +39,23 @@ dotnet build
 # Run the API
 dotnet run --project src/Constellation.Api
 
-# Run tests
+# Run .NET tests
 dotnet test
+```
+
+### Web (frontend)
+
+```bash
+cd src/Constellation.Web
+
+# Install dependencies
+npm install
+
+# Start the dev server
+npm start
+
+# Run unit tests
+npm test
 ```
 
 ## API Documentation
