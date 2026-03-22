@@ -16,9 +16,8 @@ cd /d "%WEB_DIR%" && ng build domain
 if %errorlevel% neq 0 (echo ERROR: domain build failed & exit /b 1)
 
 echo Building app...
-cd /d "%WEB_DIR%" && ng build
+cd /d "%WEB_DIR%" && ng build constellation
 if %errorlevel% neq 0 (echo ERROR: app build failed & exit /b 1)
-
 echo Frontend build complete.
 echo Starting Constellation Backend and Frontend...
 
