@@ -103,7 +103,7 @@ export interface TableColumn {
       font-weight: 500;
     }
     .relevance-badge {
-      border-radius: 4px;
+      border-radius: 16px;
       padding: 4px 10px;
     }
     .badge-text {
@@ -128,21 +128,18 @@ export class DataTableComponent {
   rowClicked = output<EventDto>();
 
   sourceColor(source: string): string {
-    switch (source.toLowerCase()) {
-      case 'eventbrite': return '#BB86FC';
-      case 'meetup': return '#03DAC6';
-      case 'websearch': return '#FFB74D';
-      default: return '#B0B0B0';
-    }
+    return '#B0B0B0';
   }
 
   badgeBg(score: number): string {
-    if (score >= 0.8) return '#4CAF50';
-    if (score >= 0.6) return '#FFB74D';
-    return '#F44336';
+    if (score >= 0.8) return '#1B5E20';
+    if (score >= 0.6) return '#4A148C';
+    return '#E65100';
   }
 
   badgeFg(score: number): string {
-    return '#121212';
+    if (score >= 0.8) return '#4CAF50';
+    if (score >= 0.6) return '#BB86FC';
+    return '#FFB74D';
   }
 }

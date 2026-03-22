@@ -12,5 +12,5 @@ public interface IEventRepository
     Task AddRangeAsync(IEnumerable<Event> events);
     Task<bool> ExistsByUrlAsync(string url);
     Task<bool> ExistsByTitleAndDateAsync(string title, DateTime? startDate);
-    Task<List<(string Source, int Count)>> GetSourceSummariesAsync();
+    Task<List<(string Source, int Count, DateTime? LastSyncTime)>> GetSourceSummariesAsync();
 }

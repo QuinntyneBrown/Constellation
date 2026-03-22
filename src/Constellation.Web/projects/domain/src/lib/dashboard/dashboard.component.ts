@@ -171,6 +171,21 @@ export class DashboardComponent implements OnInit {
           this.avgRelevance.set(avg.toFixed(1));
         }
 
+        // Compute events this week
+        const now = new Date();
+        const dayOfWeek = now.getDay();
+        const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+        const startOfWeek = new Date(now.getFullYear(), now.getMonth(), now.getDate() + mondayOffset);
+        const endOfWeek = new Date(startOfWeek);
+        endOfWeek.setDate(endOfWeek.getDate() + 7);
+
+        const weeklyCount = result.items.filter(e => {
+          if (!e.startDate) return false;
+          const d = new Date(e.startDate);
+          return d >= startOfWeek && d < endOfWeek;
+        }).length;
+        this.eventsThisWeek.set(weeklyCount > 0 ? weeklyCount.toString() : result.totalCount.toString());
+
         this.loading.set(false);
       },
       error: () => this.loading.set(false),

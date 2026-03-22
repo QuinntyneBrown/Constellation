@@ -108,15 +108,15 @@ export class EventCardComponent {
 
   badgeBackground(): string {
     const score = this.event().relevanceScore;
-    if (score >= 8) return '#1B5E20';
-    if (score >= 6) return '#4A148C';
+    if (score >= 0.8) return '#1B5E20';
+    if (score >= 0.6) return '#4A148C';
     return '#E65100';
   }
 
   badgeColor(): string {
     const score = this.event().relevanceScore;
-    if (score >= 8) return '#4CAF50';
-    if (score >= 6) return '#BB86FC';
+    if (score >= 0.8) return '#4CAF50';
+    if (score >= 0.6) return '#BB86FC';
     return '#FFB74D';
   }
 }

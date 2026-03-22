@@ -26,7 +26,8 @@ public class SourcesController : ControllerBase
         var dtos = summaries.Select(s => new SourceSummaryDto
         {
             Source = s.Source,
-            EventCount = s.Count
+            EventCount = s.Count,
+            LastSyncTime = s.LastSyncTime
         }).ToList();
 
         return Ok(dtos);

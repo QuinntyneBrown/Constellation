@@ -97,6 +97,8 @@ export interface NavItem {
     }
     .nav-item.active {
       background: #2C2C2C;
+      border-left: 3px solid #BB86FC;
+      padding-left: 13px;
     }
     .nav-item.active .nav-icon {
       color: #BB86FC;

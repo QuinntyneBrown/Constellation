@@ -112,14 +112,14 @@ public class EventRepository : IEventRepository
         return await _context.Events.AnyAsync(e => e.Title == title && e.StartDate == startDate);
     }
 
-    public async Task<List<(string Source, int Count)>> GetSourceSummariesAsync()
+    public async Task<List<(string Source, int Count, DateTime? LastSyncTime)>> GetSourceSummariesAsync()
     {
         var results = await _context.Events
             .GroupBy(e => e.Source)
-            .Select(g => new { Source = g.Key, Count = g.Count() })
+            .Select(g => new { Source = g.Key, Count = g.Count(), LastSyncTime = g.Max(e => e.CreatedAt) })
             .OrderByDescending(x => x.Count)
             .ToListAsync();
 
-        return results.Select(x => (x.Source, x.Count)).ToList();
+        return results.Select(x => (x.Source, x.Count, (DateTime?)x.LastSyncTime)).ToList();
     }
 }

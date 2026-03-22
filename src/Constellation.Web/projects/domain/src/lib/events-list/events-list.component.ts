@@ -25,7 +25,7 @@ import { PaginatorComponent } from 'components';
       <div class="page-header">
         <h1 class="page-title">Events</h1>
         <div class="count-badge">
-          <span>{{ totalCount().toLocaleString() }}</span>
+          <span>{{ totalCount().toLocaleString() }} events</span>
         </div>
       </div>
 
@@ -52,10 +52,13 @@ import { PaginatorComponent } from 'components';
         </div>
         <div class="date-field">
           <input
-            type="date"
+            type="text"
             class="date-input"
+            placeholder="Date range"
             [ngModel]="dateFilter()"
             (ngModelChange)="onDateChange($event)"
+            onfocus="this.type='date'"
+            onblur="if(!this.value)this.type='text'"
           />
           <span class="material-symbols-rounded date-icon">calendar_today</span>
         </div>
