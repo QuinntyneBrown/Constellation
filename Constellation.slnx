@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Constellation.Api/Constellation.Api.csproj" />
+    <Project Path="src/Constellation.Data/Constellation.Data.csproj" />
+    <Project Path="src/Constellation.Models/Constellation.Models.csproj" />
+    <Project Path="src/Constellation.Services/Constellation.Services.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Constellation.Tests/Constellation.Tests.csproj" />
+  </Folder>
+</Solution>
